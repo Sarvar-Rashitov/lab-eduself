@@ -1,0 +1,22 @@
+# robots.txt for Virtual Physics Lab Portal
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://physics.eduself.uz/sitemap.xml
+
+# Disallow admin areas (if any in future)
+Disallow: /admin/
+Disallow: /.git/
+
+# Allow all educational content
+Allow: /index.html
+Allow: /categories.html
+Allow: /category.html
+Allow: /lab.html
+Allow: /glossary.html
+Allow: /about.html
+
+# Crawl-delay
+Crawl-delay: 1

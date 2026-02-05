@@ -1,0 +1,27 @@
+{
+  "name": "physics-virtual-labs-portal",
+  "version": "1.0.0",
+  "description": "Virtual Physics Laboratories Portal - National University of Uzbekistan Physics Faculty",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 8080 -o",
+    "dev": "npx live-server --port=8080 --open=index.html",
+    "deploy:netlify": "netlify deploy --prod",
+    "deploy:vercel": "vercel --prod"
+  },
+  "keywords": [
+    "physics",
+    "virtual-lab",
+    "education",
+    "uzbekistan",
+    "simulation",
+    "interactive"
+  ],
+  "author": "National University of Uzbekistan - Physics Faculty",
+  "license": "Educational",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/physics-virtual-labs"
+  },
+  "homepage": "https://physics.eduself.uz"
+}

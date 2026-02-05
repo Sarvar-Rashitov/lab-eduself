@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoriya - Virtual Fizika Laboratoriyalari</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2 md:space-x-4">
+                    <div class="text-2xl md:text-4xl animate-bounce">⚛️</div>
+                    <a href="index.html" class="hover:opacity-80 transition">
+                        <h1 class="text-sm md:text-2xl font-bold text-white">Virtual Physics Lab</h1>
+                        <p class="text-xs md:text-base text-yellow-300 font-semibold">✨ EduSelf</p>
+                    </a>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="labs.html" class="text-white hover:text-yellow-300 transition font-semibold">
+                        <i class="fas fa-flask mr-2"></i>Laboratoriyalar
+                    </a>
+                    <a href="categories.html" class="text-white hover:text-yellow-300 transition font-semibold">
+                        <i class="fas fa-th-large mr-2"></i>Kategoriyalar
+                    </a>
+                    <a href="glossary.html" class="text-white hover:text-yellow-300 transition font-semibold">
+                        <i class="fas fa-book mr-2"></i>Lug'at
+                    </a>
+                    <a href="about.html" class="text-white hover:text-yellow-300 transition font-semibold">
+                        <i class="fas fa-info-circle mr-2"></i>Biz haqimizda
+                    </a>
+                </div>
+                
+                <div class="flex items-center space-x-2 md:space-x-4">
+                    <select id="langSwitch" class="bg-white/20 text-white px-2 py-1 md:px-3 md:py-2 rounded-full backdrop-blur-lg border border-white/30 text-xs md:text-sm font-semibold" style="color: white;">
+                        <option value="uz" style="background-color: #1e293b; color: white;">UZ</option>
+                        <option value="ru" style="background-color: #1e293b; color: white;">RU</option>
+                        <option value="en" style="background-color: #1e293b; color: white;">EN</option>
+                    </select>
+                    <button id="darkModeToggle" class="w-8 h-8 md:w-10 md:h-10 bg-white/20 rounded-full backdrop-blur-lg border border-white/30 flex items-center justify-center hover:scale-110 transition">
+                        <i class="fas fa-moon text-white dark:hidden text-sm md:text-base"></i>
+                        <i class="fas fa-sun text-white hidden dark:inline text-sm md:text-base"></i>
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden w-8 h-8 bg-white/20 rounded-full backdrop-blur-lg border border-white/30 flex items-center justify-center hover:scale-110 transition">
+                        <i class="fas fa-bars text-white text-sm"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/20">
+                <a href="labs.html" class="block text-white hover:text-yellow-300 transition font-semibold py-3 px-4 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-flask mr-2"></i>Laboratoriyalar
+                </a>
+                <a href="categories.html" class="block text-white hover:text-yellow-300 transition font-semibold py-3 px-4 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-th-large mr-2"></i>Kategoriyalar
+                </a>
+                <a href="glossary.html" class="block text-white hover:text-yellow-300 transition font-semibold py-3 px-4 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-book mr-2"></i>Lug'at
+                </a>
+                <a href="about.html" class="block text-white hover:text-yellow-300 transition font-semibold py-3 px-4 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-info-circle mr-2"></i>Biz haqimizda
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Lab Content -->
+    <section class="py-12 relative">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <!-- Back Button -->
+                <a href="javascript:history.back()" class="inline-flex items-center text-white hover:text-white/80 mb-6 md:mb-8 text-base md:text-lg font-semibold transition-all hover:translate-x-[-5px]">
+                    <i class="fas fa-arrow-left mr-2 md:mr-3"></i> Orqaga
+                </a>
+
+                <!-- Lab Header -->
+                <div id="labHeader" class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 mb-6 md:mb-8 fade-in">
+                    <!-- Loaded by JavaScript -->
+                </div>
+
+                <!-- Lab Simulation -->
+                <div id="labSimulation" class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 mb-6 md:mb-8 fade-in">
+                    <!-- Loaded by JavaScript -->
+                </div>
+
+                <!-- Lab Description -->
+                <div id="labDescription" class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 fade-in">
+                    <!-- Loaded by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black/30 backdrop-blur-lg border-t border-white/10 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-white/80 text-lg">&copy; 2026 EduSelf</p>
+            <p class="text-white/60 mt-2">Educational Virtual Physics Laboratory Portal</p>
+        </div>
+    </footer>
+
+    <script src="scripts/data.js"></script>
+    <script src="scripts/data-extended.js"></script>
+    <script src="scripts/i18n.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+        
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+                
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+        });
+    </script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const labId = urlParams.get('id');
+        const lab = laboratories.find(l => l.id === labId);
+
+        if (lab) {
+            const category = categories.find(c => c.id === lab.category);
+            const isBookmarked = bookmarkManager.has(lab.id);
+
+            // Render lab header
+            document.getElementById('labHeader').innerHTML = `
+                <div class="flex items-start justify-between mb-4 md:mb-6">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 md:gap-4 mb-4 md:mb-6">
+                            <div class="bg-gradient-to-br ${category.color} w-12 h-12 md:w-20 md:h-20 rounded-xl md:rounded-2xl flex items-center justify-center shadow-2xl flex-shrink-0">
+                                <i class="fas ${category.icon} text-xl md:text-3xl text-white"></i>
+                            </div>
+                            <div>
+                                <h1 class="text-xl md:text-4xl font-bold text-white mb-1 md:mb-2">${lab[currentLang].name}</h1>
+                                <p class="text-white/80 text-sm md:text-lg">${category[currentLang]}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="toggleBookmark('${lab.id}')" class="bookmark-btn ${isBookmarked ? 'active' : ''} text-xl md:text-3xl flex-shrink-0">
+                        <i class="fas fa-bookmark"></i>
+                    </button>
+                </div>
+                <p class="text-base md:text-xl text-white/90 mb-4 md:mb-6 leading-relaxed">${lab[currentLang].desc}</p>
+                <div class="flex flex-wrap gap-2 md:gap-3">
+                    <span class="lab-badge badge-${lab.difficulty} text-xs md:text-sm">
+                        <i class="fas fa-signal mr-1 md:mr-2"></i>${t('difficulty-' + lab.difficulty)}
+                    </span>
+                    <span class="lab-badge text-xs md:text-sm" style="background: ${category.color.includes('from') ? 'linear-gradient(135deg, ' + category.color.replace('from-', '').replace('to-', ', ') + ')' : category.color}">
+                        <i class="fas ${category.icon} mr-1 md:mr-2"></i>${category[currentLang]}
+                    </span>
+                </div>
+            `;
+
+            // Render simulation
+            if (lab.embed) {
+                document.getElementById('labSimulation').innerHTML = `
+                    <h3 class="text-xl md:text-3xl font-bold text-white mb-4 md:mb-6 flex items-center">
+                        <i class="fas fa-play-circle mr-2 md:mr-3 neon-glow"></i>Interaktiv Simulatsiya
+                    </h3>
+                    <div class="iframe-container bg-black/30 rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+                        <iframe src="${lab.url}" class="w-full h-full" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    </div>
+                    <p class="text-xs md:text-sm text-white/70 mt-3 md:mt-4 flex items-center">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        Simulatsiya to'liq ekranda ochilishi uchun yuqoridagi tugmani bosing
+                    </p>
+                `;
+            } else {
+                document.getElementById('labSimulation').innerHTML = `
+                    <h3 class="text-xl md:text-3xl font-bold text-white mb-4 md:mb-6 flex items-center">
+                        <i class="fas fa-external-link-alt mr-2 md:mr-3 neon-glow"></i>Tashqi Havola
+                    </h3>
+                    <div class="p-8 md:p-16 rounded-xl md:rounded-2xl text-white text-center relative overflow-hidden" style="background: linear-gradient(135deg, ${category.color.replace('from-', '').replace('to-', ', ')})">
+                        <div class="relative z-10">
+                            <i class="fas fa-rocket text-5xl md:text-8xl mb-4 md:mb-6 animate-bounce"></i>
+                            <p class="text-lg md:text-2xl mb-6 md:mb-8 font-semibold">Bu laboratoriya tashqi saytda ochiladi</p>
+                            <a href="${lab.url}" target="_blank" rel="noopener noreferrer" 
+                               class="glow-button inline-block text-sm md:text-base">
+                                <i class="fas fa-rocket mr-2"></i>${t('launch-lab')} <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Render description
+            document.getElementById('labDescription').innerHTML = `
+                <h3 class="text-xl md:text-3xl font-bold text-white mb-4 md:mb-6 flex items-center">
+                    <i class="fas fa-book mr-2 md:mr-3 neon-glow"></i>Laboratoriya Haqida
+                </h3>
+                <div class="space-y-4 md:space-y-6">
+                    <div>
+                        <h4 class="text-lg md:text-2xl font-semibold text-white mb-2 md:mb-3 flex items-center">
+                            <i class="fas fa-graduation-cap mr-2 text-yellow-400"></i>Ta'lim Maqsadi
+                        </h4>
+                        <p class="text-white/90 text-sm md:text-lg leading-relaxed">
+                            Bu virtual laboratoriya ${lab[currentLang].name} bo'yicha amaliy tajriba o'tkazish imkonini beradi. 
+                            Talabalar nazariy bilimlarni amalda qo'llash va fizik jarayonlarni vizual tarzda o'rganishlari mumkin.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg md:text-2xl font-semibold text-white mb-2 md:mb-3 flex items-center">
+                            <i class="fas fa-star mr-2 text-yellow-400"></i>Asosiy Xususiyatlar
+                        </h4>
+                        <ul class="space-y-2 md:space-y-3 text-white/90 text-sm md:text-lg">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 md:mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Interaktiv simulatsiya va real vaqtda natijalar</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 md:mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Parametrlarni o'zgartirish va tajriba o'tkazish</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 md:mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Vizual grafik va animatsiyalar</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 md:mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Bepul va cheklovsiz foydalanish</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg md:text-2xl font-semibold text-white mb-2 md:mb-3 flex items-center">
+                            <i class="fas fa-link mr-2 text-blue-400"></i>Rasmiy Manba
+                        </h4>
+                        <a href="${lab.url}" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center text-blue-300 hover:text-blue-200 text-sm md:text-lg transition-all hover:translate-x-2 break-all">
+                            <i class="fas fa-external-link-alt mr-2 flex-shrink-0"></i>${lab.url}
+                        </a>
+                    </div>
+                </div>
+            `;
+        } else {
+            document.body.innerHTML = `
+                <div class="min-h-screen flex items-center justify-center">
+                    <div class="text-center">
+                        <i class="fas fa-exclamation-triangle text-6xl text-yellow-500 mb-4"></i>
+                        <h2 class="text-2xl font-bold mb-4">Laboratoriya topilmadi</h2>
+                        <a href="index.html" class="text-blue-600 hover:underline">Bosh sahifaga qaytish</a>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

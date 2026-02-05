@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Virtual Fizika Laboratoriyalari - O'zMU</title>
+    <meta name="description" content="200+ interaktiv fizika simulatsiyalari - EduSelf">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="text-4xl animate-bounce">⚛️</div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-white">Virtual Physics Lab</h1>
+                        <p class="text-base text-yellow-300 font-semibold">✨ EduSelf</p>
+                    </div>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="labs.html" class="text-white hover:text-yellow-300 transition font-semibold">
+                        <i class="fas fa-flask mr-2"></i>Laboratoriyalar
+                    </a>
+                    <a href="categories.html" class="text-white hover:text-yellow-300 transition font-semibold">
+                        <i class="fas fa-th-large mr-2"></i>Kategoriyalar
+                    </a>
+                    <a href="glossary.html" class="text-white hover:text-yellow-300 transition font-semibold">
+                        <i class="fas fa-book mr-2"></i>Lug'at
+                    </a>
+                    <a href="about.html" class="text-white hover:text-yellow-300 transition font-semibold">
+                        <i class="fas fa-info-circle mr-2"></i>Biz haqimizda
+                    </a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <select id="langSwitch" class="bg-white/20 text-white px-3 py-2 rounded-full backdrop-blur-lg border border-white/30 text-sm font-semibold" style="color: white;">
+                        <option value="uz" style="background-color: #1e293b; color: white;">UZ</option>
+                        <option value="ru" style="background-color: #1e293b; color: white;">RU</option>
+                        <option value="en" style="background-color: #1e293b; color: white;">EN</option>
+                    </select>
+                    <button id="darkModeToggle" class="w-10 h-10 bg-white/20 rounded-full backdrop-blur-lg border border-white/30 flex items-center justify-center hover:scale-110 transition">
+                        <i class="fas fa-moon text-white dark:hidden"></i>
+                        <i class="fas fa-sun text-white hidden dark:inline"></i>
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden w-10 h-10 bg-white/20 rounded-full backdrop-blur-lg border border-white/30 flex items-center justify-center hover:scale-110 transition">
+                        <i class="fas fa-bars text-white"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/20">
+                <a href="labs.html" class="block text-white hover:text-yellow-300 transition font-semibold py-3 px-4 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-flask mr-2"></i>Laboratoriyalar
+                </a>
+                <a href="categories.html" class="block text-white hover:text-yellow-300 transition font-semibold py-3 px-4 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-th-large mr-2"></i>Kategoriyalar
+                </a>
+                <a href="glossary.html" class="block text-white hover:text-yellow-300 transition font-semibold py-3 px-4 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-book mr-2"></i>Lug'at
+                </a>
+                <a href="about.html" class="block text-white hover:text-yellow-300 transition font-semibold py-3 px-4 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-info-circle mr-2"></i>Biz haqimizda
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content px-4">
+            <h2 class="hero-title">VIRTUAL PHYSICS</h2>
+            <p class="hero-subtitle">200+ Interaktiv Simulatsiyalar</p>
+            <p class="text-white/90 text-xl mb-8 max-w-3xl mx-auto">
+                Dunyodagi eng yaxshi virtual laboratoriyalar bir joyda! 
+                Fizikani o'rganing, tajriba qiling, kashf eting! 🔬✨
+            </p>
+            
+            <!-- Search Bar -->
+            <div class="search-container mb-8">
+                <input 
+                    type="text" 
+                    id="heroSearch" 
+                    class="search-input" 
+                    placeholder="🔍 Laboratoriya qidirish..."
+                >
+                <button class="search-btn">
+                    <i class="fas fa-search mr-2"></i>Qidirish
+                </button>
+            </div>
+
+            <button class="glow-button" onclick="scrollToCategories()">
+                <i class="fas fa-rocket mr-2"></i>
+                Laboratoriyalarni Ko'rish
+            </button>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="stats-card">
+                    <div class="stats-number">200+</div>
+                    <div class="text-white text-lg">Laboratoriyalar</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-number">13</div>
+                    <div class="text-white text-lg">Kategoriyalar</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-number">100%</div>
+                    <div class="text-white text-lg">Bepul</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-number">24/7</div>
+                    <div class="text-white text-lg">Ochiq</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-20">
+        <div class="container mx-auto px-4">
+            <h3 class="text-5xl font-bold text-center mb-4 text-white">
+                <span class="gradient-text">Fizika Sohalari</span>
+            </h3>
+            <p class="text-center text-white/80 text-xl mb-12">13 ta yo'nalish bo'yicha 200+ laboratoriya</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="categoriesGrid">
+                <!-- Categories will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Labs -->
+    <section class="py-20 bg-white/5 backdrop-blur-lg">
+        <div class="container mx-auto px-4">
+            <h3 class="text-5xl font-bold text-center mb-4 text-white">
+                <span class="neon-glow">⭐ Mashhur Laboratoriyalar</span>
+            </h3>
+            <p class="text-center text-white/80 text-xl mb-12">Eng ko'p ishlatiladigan simulatsiyalar</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="featuredLabs">
+                <!-- Featured labs will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- All Labs Preview -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <h3 class="text-5xl font-bold text-center mb-4 text-white">
+                <span class="gradient-text">🔬 Barcha Laboratoriyalar</span>
+            </h3>
+            <p class="text-center text-white/80 text-xl mb-12">200+ interaktiv fizika tajribalari</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="allLabsPreview">
+                <!-- Labs preview will be loaded by JavaScript -->
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="categories.html" class="glow-button">
+                    <i class="fas fa-th-large mr-2"></i>
+                    Barchasini Ko'rish
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black/30 backdrop-blur-lg border-t border-white/10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-2xl font-bold text-white mb-4">🚀 Virtual Physics Lab</h4>
+                    <p class="text-white/70">
+                        EduSelf tomonidan 
+                        yaratilgan ochiq ta'lim platformasi.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold text-white mb-4">Havolalar</h4>
+                    <ul class="space-y-2">
+                        <li><a href="labs.html" class="text-white/70 hover:text-white transition">🔬 Laboratoriyalar</a></li>
+                        <li><a href="categories.html" class="text-white/70 hover:text-white transition">📚 Kategoriyalar</a></li>
+                        <li><a href="glossary.html" class="text-white/70 hover:text-white transition">📖 Lug'at</a></li>
+                        <li><a href="about.html" class="text-white/70 hover:text-white transition">ℹ️ Biz haqimizda</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold text-white mb-4">Aloqa</h4>
+                    <p class="text-white/70">
+                        <i class="fas fa-university mr-2"></i>EduSelf<br>
+                        <a href="mailto:physics@eduself.uz" class="hover:text-white transition">
+                            <i class="fas fa-envelope mr-2"></i>physics@eduself.uz
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center">
+                <p class="text-white/60">&copy; 2026 O'zMU Fizika Fakulteti | physics.eduself.uz</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/data.js"></script>
+    <script src="scripts/i18n.js"></script>
+    <script src="scripts/main.js"></script>
+    
+    <script>
+        // Smooth scroll to categories
+        function scrollToCategories() {
+            const categoriesSection = document.getElementById('categories');
+            if (categoriesSection) {
+                categoriesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        // Hero search functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroSearch = document.getElementById('heroSearch');
+            const searchBtn = document.querySelector('.search-btn');
+            
+            function performSearch() {
+                const query = heroSearch.value.trim();
+                if (query) {
+                    // Redirect to categories page with search query
+                    window.location.href = `categories.html?search=${encodeURIComponent(query)}`;
+                }
+            }
+            
+            if (searchBtn) {
+                searchBtn.addEventListener('click', performSearch);
+            }
+            
+            if (heroSearch) {
+                heroSearch.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        performSearch();
+                    }
+                });
+            }
+        });
+        
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            if (!container) return;
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+        
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+                
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
